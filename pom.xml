@@ -28,6 +28,12 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.intellij.uiDesigner</pattern>
+                                    <shadedPattern>me.jonakls.simplecontacts.libs</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
