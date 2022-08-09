@@ -1,27 +1,22 @@
 package me.jonakls.simplecontacts;
 
-import me.jonakls.simplecontacts.api.ContactUser;
-import me.jonakls.simplecontacts.managers.ContactService;
+import me.jonakls.simplecontacts.service.AccountsService;
 import me.jonakls.simplecontacts.ui.LoginForm;
-
-import java.util.Scanner;
 
 public class SimpleContacts {
 
-    private static ContactUser contactUser;
-    private static ContactService contactService;
-    private Scanner scanner = new Scanner(System.in);
+    private static AccountsService accountsService;
 
     public static void main(String[] args) {
-        // SE INICIA EL SERVICIO DE CONTACTOS
-        contactService = new ContactService();
+        // Create accounts file and load accounts if it exists
+        accountsService = new AccountsService();
 
-        // SE INICIA LA ABSTRACCION DE USUARO
-        contactUser = new ContactUser("Jonathan Narvaez");
-
-        // EJERCICIO BASICO DE PRUEBA PARA GESTIONAR
-        // INICIA LOS UI DEL SISTEMA
+        // Create login form and show it
         new LoginForm(null);
+    }
+
+    public static AccountsService getAccountsService() {
+        return accountsService;
     }
 
 }
