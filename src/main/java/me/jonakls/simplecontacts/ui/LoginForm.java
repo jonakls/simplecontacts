@@ -1,10 +1,14 @@
 package me.jonakls.simplecontacts.ui;
 
+import me.jonakls.simplecontacts.service.AccountsService;
+
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.util.Locale;
+
+import static me.jonakls.simplecontacts.SimpleContacts.getAccountsService;
 
 public class LoginForm extends JDialog {
     private JPanel loginPane;
@@ -27,12 +31,31 @@ public class LoginForm extends JDialog {
         setLocationRelativeTo(null);
         setVisible(true);
         toRegisterForm();
+        onLoginForm();
     }
 
     private void toRegisterForm() {
         registerButton.addActionListener(e -> {
             dispose();
             RegisterForm registerForm = new RegisterForm(null);
+        });
+    }
+
+    private void onLoginForm() {
+        loginButton.addActionListener(e -> {
+            AccountsService accountsService = getAccountsService();
+
+            if (accountsService.getAccount(inputUser.getText()) != null) {
+                dispose();
+                new DashboardForm();
+            } else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Usuario o contraseña incorrectos",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         });
     }
 
