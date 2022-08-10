@@ -5,7 +5,6 @@ import me.jonakls.simplecontacts.api.ContactUser;
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import static me.jonakls.simplecontacts.utils.FileUtils.createFile;
 
@@ -56,7 +55,10 @@ public class AccountsService {
             switch (dataSplit[0].toLowerCase(Locale.ROOT)) {
                 case "id":
                     uuid = UUID.fromString(dataSplit[1]);
-                    contactUserMap.put(uuid, new ContactUser(dataSplit[1]));
+                    contactUserMap.put(uuid, new ContactUser(UUID.fromString(dataSplit[1])));
+                    break;
+                case "nick":
+                    contactUserMap.get(uuid).setNickname(dataSplit[1]);
                     break;
                 case "name":
                     contactUserMap.get(uuid).setName(dataSplit[1]);
@@ -78,22 +80,11 @@ public class AccountsService {
     }
 
     public void saveAccount(ContactUser contactUser) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("{")
-                .append("id=").append(contactUser.getUuid().toString()).append(";") // UUID
-                .append("nick=").append(contactUser.getNickname()).append(";") // NICK
-                .append("name=").append(contactUser.getName()).append(";") // NOMBRE
-                .append("secondName=").append(contactUser.getSecondName()).append(";") // APELLIDO
-                .append("email=").append(contactUser.getEmail()).append(";") // EMAIL
-                .append("phone=").append(contactUser.getPhone()).append(";") // TELEFONO
-                .append("password=") // CONTRASENA (BASE64)
-                .append(Base64.getEncoder().encodeToString(contactUser.getPassword().getBytes()))
-                .append("}");
         contactUserMap.put(contactUser.getUuid(), contactUser);
         try {
             FileWriter fileWriter = new FileWriter(accountsFile, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(builder.toString());
+            bufferedWriter.write(contactUser.toString());
             bufferedWriter.close();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(

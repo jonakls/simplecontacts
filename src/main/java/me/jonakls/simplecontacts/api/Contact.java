@@ -65,4 +65,17 @@ public class Contact {
     public long getSecondNumber() {
         return secondNumber;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + uuid.toString() +
+                "name=" + name +
+                "secondname=" + secondName +
+                "alias=" + alias +
+                "email=" + email +
+                "phone=" + number +
+                "phone2=" + secondNumber
+        ;
+    }
 }

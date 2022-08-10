@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class DashboardForm {
 
+    private JPanel dashboardPanel;
+
     public DashboardForm() {}
 
     {

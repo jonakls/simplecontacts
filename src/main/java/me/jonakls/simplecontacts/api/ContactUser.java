@@ -1,5 +1,6 @@
 package me.jonakls.simplecontacts.api;
 
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -7,7 +8,7 @@ import java.util.UUID;
 public class ContactUser {
 
     private final UUID uuid;
-    private final String nickname;
+    private String nickname;
     private String name;
     private String secondName;
     private String email;
@@ -19,6 +20,15 @@ public class ContactUser {
         this.nickname = nickname;
         this.uuid = UUID.randomUUID();
         this.contactMap = new HashMap<>();
+    }
+
+    public ContactUser(UUID uuid) {
+        this.uuid = uuid;
+        this.contactMap = new HashMap<>();
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public void setName(String name) {
@@ -71,5 +81,19 @@ public class ContactUser {
 
     public Map<Integer, Contact> getContactMap() {
         return contactMap;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + uuid.toString() + ";" + // UUID
+                "nick=" + nickname + ";" + // NICK
+                "name=" + name + ";" + // NOMBRE
+                "secondName=" + secondName + ";" + // APELLIDO
+                "email=" + email + ";" + // EMAIL
+                "phone=" + phone + ";" + // TELEFONO
+                "password=" + // CONTRASENA (BASE64)
+                Base64.getEncoder().encodeToString(password.getBytes()) +
+                "}" + "\n";
     }
 }
