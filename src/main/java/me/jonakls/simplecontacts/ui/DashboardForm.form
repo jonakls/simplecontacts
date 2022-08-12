@@ -3,17 +3,21 @@
   <grid id="27dc6" binding="dashboardPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="640" height="368"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-11374081"/>
+    </properties>
     <border type="none"/>
     <children>
-      <grid id="573e9" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="573e9" binding="decoratorPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-11374081"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="dcfa7" class="javax.swing.JLabel">
@@ -36,7 +40,7 @@
             </constraints>
             <properties>
               <font name="Tahoma" size="18" style="1"/>
-              <foreground color="-16777216"/>
+              <foreground color="-1"/>
               <text value="BIENVENIDO"/>
             </properties>
           </component>
@@ -52,14 +56,132 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <grid id="c723c" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="c723c" binding="contactContainer" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1"/>
+        </properties>
         <border type="none"/>
-        <children/>
+        <children>
+          <component id="e5c32" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Tahoma" size="18" style="1"/>
+              <foreground color="-11374081"/>
+              <text value="BIENVENIDO"/>
+            </properties>
+          </component>
+          <vspacer id="9a78c">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <scrollpane id="fa11e" binding="scrollPane">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="893b0" class="javax.swing.JList" binding="contactList">
+                <constraints/>
+                <properties>
+                  <background color="-1181953"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <vspacer id="579f7">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="a7bbf" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="a"/>
+            </properties>
+          </component>
+          <component id="36670" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="b"/>
+            </properties>
+          </component>
+          <component id="4de3c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="c"/>
+            </properties>
+          </component>
+          <component id="e9ba2" class="javax.swing.JButton" binding="addButton">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16758099"/>
+              <font name="Tahoma" size="12" style="1"/>
+              <foreground color="-1"/>
+              <text value="Añadir"/>
+            </properties>
+          </component>
+          <component id="f70d2" class="javax.swing.JButton" binding="deleteButton">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16758099"/>
+              <font name="Tahoma" size="12" style="1"/>
+              <foreground color="-1"/>
+              <text value="Remover"/>
+            </properties>
+          </component>
+          <component id="3250" class="javax.swing.JButton" binding="editButton">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16758099"/>
+              <font name="Tahoma" size="12" style="1"/>
+              <foreground color="-1"/>
+              <text value="Editar"/>
+            </properties>
+          </component>
+          <component id="e0403" class="javax.swing.JButton" binding="showButton">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16758099"/>
+              <font name="Tahoma" size="12" style="1"/>
+              <foreground color="-1"/>
+              <text value="Ver"/>
+            </properties>
+          </component>
+          <hspacer id="cfaeb">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="3881e">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
       </grid>
     </children>
   </grid>

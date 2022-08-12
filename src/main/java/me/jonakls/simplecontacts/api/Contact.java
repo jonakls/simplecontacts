@@ -75,7 +75,8 @@ public class Contact {
                 "alias=" + alias +
                 "email=" + email +
                 "phone=" + number +
-                "phone2=" + secondNumber
+                "phone2=" + secondNumber +
+                '}' + '\n'
         ;
     }
 }

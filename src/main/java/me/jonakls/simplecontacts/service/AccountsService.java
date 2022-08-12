@@ -19,8 +19,6 @@ public class AccountsService {
         loadAccounts();
     }
 
-    // FORMATO DE CUENTAS
-    // {id=UUID;nick=NICK;name=NOMBRE;secondName=APELLIDO;email=EMAIL;phone=TELEFONO;password=BASE64}
     public void loadAccounts() {
         StringJoiner allAccounts = new StringJoiner("\n");
         try {
@@ -47,7 +45,6 @@ public class AccountsService {
     }
 
     private void loadUsers(String account) {
-        // id=UUID;nick=NICK;name=NOMBRE;secondName=APELLIDO;email=EMAIL;phone=TELEFONO;password=BASE64
         String[] accountData = account.replace("{", "").replace("}", "").split(";");
         UUID uuid = null;
         for (String data : accountData) {
@@ -97,7 +94,6 @@ public class AccountsService {
     }
 
     public ContactUser getAccount(String nickname) {
-
         for (ContactUser contactUser : contactUserMap.values()) {
             if (contactUser.getNickname().equalsIgnoreCase(nickname)) {
                 return contactUser;
